@@ -13,9 +13,9 @@ $(document).ready(function() {
           if (latlngMode) {
             $input.val(
               String(responses[0].geometry.location.lat()) + ', ' + String(responses[0].geometry.location.lng())
-            );
+            ).trigger("change");
           } else {
-            $input.val(responses[0].formatted_address);
+            $input.val(responses[0].formatted_address).trigger("change");
           }
       } else {
         alert('Cannot determine address at this location.');
@@ -32,9 +32,9 @@ $(document).ready(function() {
         if (latlngMode) {
           $input.val(
             String(results[0].geometry.location.lat()) + ', ' + String(results[0].geometry.location.lng())
-          );
+          ).trigger("change");
         } else {
-          $input.val(results[0].formatted_address);
+          $input.val(results[0].formatted_address).trigger("change");
         }
         map.setCenter(results[0].geometry.location);
       } else {
